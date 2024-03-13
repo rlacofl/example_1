@@ -17,7 +17,8 @@ header {
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background-color: yellowgreen;
+    background-color: transparent; 
+    /* ㄴ> 투명하게 */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,4 +43,106 @@ header {
 .navbar a:hover, .navbar a.active {
     /* .active는 Home에 들어가있음. */
     color: #00abf0;
+}
+
+.home {
+    height: 100vh;
+    display: flex;
+    /* ㄴ> 고정되어있지만 float 처럼 공중에 떠잇는 상태. */
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content {
+    position: relative;
+    max-width: 600px;
+}
+
+.cat {
+    width: 100px;
+    position: absolute;
+    left: 190px;
+    top: 0px;
+    }  
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ededed;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #00abf0;
+}
+
+.home-content p {
+    font-size: 16px;
+    margin: 20px 0 40px;
+    color: #ededed;
+}
+
+.home-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+}
+
+.btn-box a {
+    display: flex;
+    /* ㄴ> 글자를 가운데 정렬하기 위해 (center 랑 같이) */
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background-color: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-box a:nth-child(2) {
+    background-color: transparent;
+    color: #00abf0;
+}
+
+.btn-box a {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    /* ㄴ> 이거 안 해주면 ㅈ댐 */
+}
+
+.btn-box a:nth-child(2) {
+    background-color: transparent;
+    color: #00abf0;
+}
+
+.btn-box a::before {
+    content: ''; 
+    /* ㄴ> 아무것도 없음 ??? */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: tomato;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+/* a 버튼에 마우스 올릴 때 가상클래스에 적용됨. */
+.btn-box a:hover::before {
+    width: 100%;
+}
+
+.btn-box a:hover {
+    color: #ededed;
 }
